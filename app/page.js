@@ -1,6 +1,7 @@
 "use client"
 import CarouselBarner from "@/components/CarouselBarner";
 import HotDeals from "@/components/HotDeals";
+import OtherDeals from "@/components/OtherDeals";
 import ShortCuts from "@/components/ShortCuts";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -32,6 +33,7 @@ export default function Home() {
       <div className=" mt-4  justify-center">
         <ShortCuts/>
         <HotDeals/>
+        <OtherDeals/>
         
       </div>    
 

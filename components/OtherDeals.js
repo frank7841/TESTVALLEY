@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import PriceCard from './PriceCard'
+import PriceCard from './PriceCard';
 
-function HotDeals() {
+
+function OtherDeals() {
+ 
     const [getDiscountdata, setDiscountData] = useState([]);
     useEffect(()=>{
         const fetchdata= async()=>{
@@ -9,7 +11,7 @@ function HotDeals() {
                 const response = await fetch('https://api.testvalley.kr/collections?prearrangedDiscount')
                 const data = await response.json();
                 const filteredData = data.items.filter(
-                    item => item.viewType === 'TILE' && item.type === 'SINGLE'&& item.title ==='HOT DEAL'
+                    item => item.viewType === 'TILE' && item.type === 'SINGLE'&& item.title !=='HOT DEAL'
                 );
                 setDiscountData(filteredData)
                 
@@ -28,4 +30,4 @@ function HotDeals() {
   )
 }
 
-export default HotDeals
+export default OtherDeals
