@@ -24,6 +24,7 @@ function HotDeals() {
   return (
     <div className="flex space-x-4">
             <PriceCard data={getDiscountdata}/>
+            
     </div>
   )
 }

@@ -7,22 +7,23 @@ import Image from 'next/image';
 
 function Header() {
   return (
-    <header className="fixed w-full z-20 top-0 flex flex-col md:flex-row items-center justify-around py-3 px-0 ">
-      <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-2">
-        <Link href={'/'} className="ml-0 md:ml-20">
-        
-            <Image
-              src={'https://www.testvalley.kr/logo/logo-new.svg'}
-              width={100}
-              height={20}
-              className='mt-1'
-              alt='logo'
-            />  
-          
+    <header className="fixed w-full z-20 top-0 flex justify-around p-5 px-0">
+      <div className="flex">
+        <Link href={'/'} className="ml-0">
+          <Image
+            src={'https://www.testvalley.kr/logo/logo-new.svg'}
+            width={100}
+            height={40}
+            className='mt-1'
+            alt='logo'
+          />
         </Link>
         <Category />
       </div>
-      <Search />
+      {/* Display Search component only on screens larger than or equal to md (tailwindcss) */}
+      <div className="hidden md:block">
+        <Search />
+      </div>
       <Login />
     </header>
   );

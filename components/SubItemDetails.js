@@ -27,18 +27,18 @@ function SubItemDetails({ subItem }) {
           <div className='flex '>
             {subItem.publication.priceInfo.discountRate ? (
               <>
-                <h2 className="text-red-600 font-semibold">{subItem.publication.priceInfo.discountRate}%</h2>
-                <h2 className="text-gray-700 font-semibold">{subItem.publication.priceInfo.discountPrice}<span className='leading-7'>돈</span></h2>
+                <h2 className="text-red-600 font-semibold">{subItem.publication.priceInfo.discountRate}% <span className="text-gray-700 font-semibold">{subItem.publication.priceInfo.discountPrice}</span> <span className='leading-7 text-gray-500'>돈</span></h2>
+                
               </>
             ) : (
               <>
-                <h2 className="text-gray-700 font-semibold">{subItem.publication.priceInfo.price}<span className='leading-7'>돈</span></h2>
+                <h2 className="text-gray-500 font-semibold">{subItem.publication.priceInfo.price}<span className='leading-7'>돈</span></h2>
               </>
             )}
           </div>
           <div className='flex space-x-1'>
-            <span>*</span>
-            <h1>{subItem.publication.rating}</h1>
+            <span className="font-semibold text-gray-500 text-md">*</span>
+            <h1 className='text-gray-500 font-semibold'>{subItem.publication.rating}</h1>
           </div>
           {subItem.publication.tagsOnDesc.length > 0 && (
             <p className='text-gray-500  flex justify-start'>{subItem.publication.tagsOnDesc[0]}</p>

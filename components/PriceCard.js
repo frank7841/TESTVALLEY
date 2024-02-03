@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function CustomPrevArrow({ onClick }) {
   return (
-    <div className="control-dots -!mr-4">
+    <div className="absolute bottom-0 left-0 ml-2 transform -translate-x-1/2">
       <ChevronLeft className="text-gray-900" onClick={onClick} />
     </div>
   );
@@ -14,12 +14,11 @@ function CustomPrevArrow({ onClick }) {
 
 function CustomNextArrow({ onClick }) {
   return (
-    <div className="control-dots !ml-3">
+    <div className="absolute bottom-0 right-0 ml-6 transform -translate-x-1/2">
       <ChevronRight className="text-gray-900" onClick={onClick} />
     </div>
   );
 }
-
 
 function PriceCard({ data }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -33,11 +32,11 @@ function PriceCard({ data }) {
             <h3 className="mb-2 text-lg font-semibold">{item.title}</h3>
             <h3 className="mb-2 text-md font-semibold text-gray-500">{item.subtitle}</h3>
           </div>
-          <div className='carousel '>
+          <div className='carousel relative'>
             {item.items && (
               <>
                 <Carousel
-                  className='mx-10 relative'
+                  className='mx-10'
                   ref={carouselRef}
                   selectedItem={currentSlide}
                   onChange={(index) => setCurrentSlide(index)}
@@ -45,7 +44,7 @@ function PriceCard({ data }) {
                   showThumbs={false}
                   dynamicHeight={false}
                   centerMode={true}
-                  showIndicators={false}  // Set this to false to hide the dots
+                  showIndicators={false}
                   showStatus={false}
                   centerSlidePercentage={100 / 3}
                   renderArrowPrev={(onClickHandler, hasPrev, label) =>
