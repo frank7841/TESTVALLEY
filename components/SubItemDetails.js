@@ -5,7 +5,7 @@ import React from 'react';
 function SubItemDetails({ subItem }) {
   return (
     <div key={subItem.uuid} className="flex flex-col w-3/4 max-w-sm rounded overflow-hidden shadow-lg">
-      <div className="flex-shrink-0">
+           <div className="flex-shrink-0 relative">
         <Image
           className="img-fluid"
           src={subItem.publication.media[0].uri}
@@ -13,7 +13,13 @@ function SubItemDetails({ subItem }) {
           width={100}
           height={100}
         />
+        {subItem.publication.tagsOnImage.length > 0 && (
+        <div className="absolute bottom-0 left-0 p-2 text-white bg-[#00D094]">
+            {subItem.publication.tagsOnImage[0]}
+        </div>
+        )}
       </div>
+
 
       <div className="flex-grow flex flex-col justify-between px-6 py-4">
         <div>
@@ -34,9 +40,9 @@ function SubItemDetails({ subItem }) {
             <span>*</span>
             <h1>{subItem.publication.rating}</h1>
           </div>
-          <div>{subItem.publication.tagsOnDesc.length > 0 && (
-            <p className='text-gray-500'>{subItem.publication.tagsOnDesc[0]}</p>
-          )}</div>
+          {subItem.publication.tagsOnDesc.length > 0 && (
+            <p className='text-gray-500  flex justify-start'>{subItem.publication.tagsOnDesc[0]}</p>
+          )}
         </div>
         
         {/* Text at the bottom of the image */}

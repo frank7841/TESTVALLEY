@@ -5,7 +5,7 @@ function Category() {
   return (
     <div className='mt-0 flex space-x-2 text-[#00D094]'>
         <MenuIcon color='#00D094'/>
-        <h3>Category</h3>
+        <h3>카테고리</h3>
     </div>
   )
 }

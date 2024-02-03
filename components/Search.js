@@ -22,7 +22,7 @@ function Search() {
         <input
             type="text"
             className="block p-2 pl-10 w-70 text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
-            placeholder="Search Here..."
+            placeholder="살까말까 고민된다면 검색해보세..."
         
         />
     </div>

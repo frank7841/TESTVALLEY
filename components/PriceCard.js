@@ -6,44 +6,38 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function CustomPrevArrow({ onClick }) {
   return (
-
-     <ChevronLeft color='red' className="absolute left-0  top-1/2 z-50" onClick={onClick}/>
-
+    <div className="control-dots -!mr-4">
+      <ChevronLeft className="text-gray-900" onClick={onClick} />
+    </div>
   );
 }
 
 function CustomNextArrow({ onClick }) {
   return (
-     <ChevronRight color='red' className="absolute left-1 top-1/2" onClick={onClick}/>
-   
+    <div className="control-dots !ml-3">
+      <ChevronRight className="text-gray-900" onClick={onClick} />
+    </div>
   );
 }
+
 
 function PriceCard({ data }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const carouselRef = useRef(null);
 
-  const handleNext = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % data.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + data.length) % data.length);
-  };
-
   return (
-    <div className="z-10">
+    <div className="">
       {data.map((item, index) => (
-        <div key={item.id} className='flex space-y-5 mr-5'>
-          <div className="md:ml-24 z-0">
+        <div key={item.id} className='flex space-y-5 mr-5 relative'>
+          <div className="md:ml-24 z-0 mt-10">
             <h3 className="mb-2 text-lg font-semibold">{item.title}</h3>
             <h3 className="mb-2 text-md font-semibold text-gray-500">{item.subtitle}</h3>
           </div>
-          <div className='carousel'>
+          <div className='carousel '>
             {item.items && (
               <>
                 <Carousel
-                  className='mx-10'
+                  className='mx-10 relative'
                   ref={carouselRef}
                   selectedItem={currentSlide}
                   onChange={(index) => setCurrentSlide(index)}
@@ -51,7 +45,9 @@ function PriceCard({ data }) {
                   showThumbs={false}
                   dynamicHeight={false}
                   centerMode={true}
-                  centerSlidePercentage={100 / 4}
+                  showIndicators={false}  // Set this to false to hide the dots
+                  showStatus={false}
+                  centerSlidePercentage={100 / 3}
                   renderArrowPrev={(onClickHandler, hasPrev, label) =>
                     hasPrev && (
                       <CustomPrevArrow key="prev" onClick={onClickHandler} />
@@ -64,7 +60,7 @@ function PriceCard({ data }) {
                   }
                 >
                   {item.items.map((subItem) => (
-                    <div key={subItem.uuid}>
+                    <div key={subItem.uuid} className='my-10'>
                       <SubItemDetails key={subItem.uuid} subItem={subItem} />
                     </div>
                   ))}

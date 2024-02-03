@@ -5,9 +5,9 @@ function Login() {
   return (
     <div className='flex space-x-2 '>
         <Image src={'https://www.testvalley.kr/common/home-event.svg'}
-        height={25}
-        width={25}/>
-        <div><span className="text-gray-500 mr-2" >|</span>Login/Logout</div>
+        height={30}
+        width={30}/>
+        <div><span className="text-gray-500 mr-2 text-sm" >|</span>로그인 / 회원가입</div>
     </div>
   )
 }
