@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 function CustomPrevArrow({ onClick }) {
   return (
     <div className="absolute bottom-0 left-0 ml-2 transform -translate-x-1/2">
-      <ChevronLeft className="text-gray-900" onClick={onClick} />
+      <ChevronLeft className="text-gray-400" onClick={onClick} />
     </div>
   );
 }
@@ -15,7 +15,7 @@ function CustomPrevArrow({ onClick }) {
 function CustomNextArrow({ onClick }) {
   return (
     <div className="absolute bottom-0 right-0 ml-6 transform -translate-x-1/2">
-      <ChevronRight className="text-gray-900" onClick={onClick} />
+      <ChevronRight className="text-gray-400" onClick={onClick} />
     </div>
   );
 }
@@ -28,10 +28,15 @@ function PriceCard({ data }) {
     <div className="">
       {data.map((item, index) => (
         <div key={item.id} className='flex space-y-5 mr-5 relative'>
-          <div className="md:ml-24 z-0 mt-10">
+          <div className="md:ml-24 xl:ml-28 z-0 mt-10">
             <h3 className="mb-2 text-lg font-semibold">{item.title}</h3>
-            <h3 className="mb-2 text-md font-semibold text-gray-500">{item.subtitle}</h3>
+            <h3 className="mb-2 text-sm w-full  text-gray-500">{item.subtitle}</h3>
+            <div className="mt-72 flex justify-start space-x-2">
+            <ChevronLeft className="text-gray-300 cursor-pointer"/>
+            <ChevronRight className='text-gray-400 cursor-pointer'/>
           </div>
+          </div>
+        
           <div className='carousel relative'>
             {item.items && (
               <>

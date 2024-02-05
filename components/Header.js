@@ -24,7 +24,7 @@ function Header() {
       <div className="hidden md:block">
         <Search />
       </div>
-      <Login />
+      <Login className="hidden md:block" />
     </header>
   );
 }
